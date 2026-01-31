@@ -3,6 +3,8 @@ FROM docker.io/rust:1.93.0
 # Create the user to match your host (Assuming UID 1000)
 RUN useradd -m -u 1000 james
 
+RUN curl -L https://github.com/dolthub/dolt/releases/latest/download/install.sh | bash
+
 USER james
 ENV PATH="/home/james/.local/bin:${PATH}"
 
